@@ -7,7 +7,7 @@ const FyloHeader = () => {
   const headerLinks = ['Features', 'Team', 'Sign In'];
 
   return (
-    <header className='flex flex-row justify-between items-center p-6 mb-12'>
+    <header className='flex flex-row justify-between items-center p-6'>
       <div className='relative w-[80px] h-[24px]'>
         <Image src={logo} alt='logo' layout='responsive' objectFit='contain' />
       </div>

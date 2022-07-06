@@ -70,34 +70,41 @@ const testimonials = [
 const FyloMain = () => {
   return (
     <main>
-      <section className='p-6'>
-        <div className='max-w-[720px] h-[225px]'>
+      <section className='p-6 flex flex-col items-center text-center gap-8'>
+        <div className='w-full h-full min-h-[300px]'>
           <Image
+            priority
             src={mainImage}
             alt='logo'
             layout='responsive'
             objectFit='contain'
+            width={'100%'}
+            height={'100%'}
           />
         </div>
-        <h1 className='font-titles text-white font-bold text-2xl'>
-          All your files in one secure location, accessible anywhere.
-        </h1>
-        <StyledText>
-          Fylo stores all your most important files in one secure location.
-          Access them wherever you need, share and collaborate with friends
-          family, and co-workers.
-        </StyledText>
-        <button>Get Started</button>
+        <div className='flex flex-col gap-4'>
+          <h1 className='font-titles text-white font-bold text-2xl'>
+            All your files in one secure location, accessible anywhere.
+          </h1>
+          <StyledText>
+            Fylo stores all your most important files in one secure location.
+            Access them wherever you need, share and collaborate with friends
+            family, and co-workers.
+          </StyledText>
+        </div>
+        <button className='w-full rounded-3xl bg-gradient-to-br from-[#63E1D9] to-[#34A0CD] h-12 font-titles font-bold text-white text-sm'>
+          Get Started
+        </button>
       </section>
 
-      <section className='p-6'>
+      <section className='p-6 flex flex-col gap-20 items-center text-center justify-center my-20'>
         {features.map(({ image, title, text }) => (
-          <div key={title}>
+          <div key={title} className='flex flex-col items-center'>
             <div className='w-[100px] h-[100px]'>
               <Image
                 src={image}
                 alt={title}
-                layout='responsive'
+                layout='fixed'
                 objectFit='contain'
               />
             </div>
@@ -107,8 +114,8 @@ const FyloMain = () => {
         ))}
       </section>
 
-      <section className='p-6'>
-        <div>
+      <section className='p-6 flex flex-col gap-4 my-20'>
+        <div className='mb-12'>
           <Image
             src={productive}
             alt={'Stay productive'}
@@ -125,20 +132,23 @@ const FyloMain = () => {
           Securely share files and folders with friends, family and colleagues
           for live collaboration. No email attachments required.
         </StyledText>
-        <div className='text-cyan border-b-[1] border-cyan'>
-          See how Fylo works
-          <Image
-            src={arrowIcon}
-            alt={'Stay productive'}
-            height={12}
-            width={12}
-            layout='fixed'
-            objectFit='contain'
-          />
+        <div className='text-cyan  flex flex-row items-center gap-2'>
+          <div className='border-b-[1px] border-cyan flex py-1'>
+            <p>See how Fylo works</p>
+
+            <Image
+              src={arrowIcon}
+              alt={'Stay productive'}
+              height={20}
+              width={20}
+              layout='fixed'
+              objectFit='contain'
+            />
+          </div>
         </div>
       </section>
 
-      <section className='p-12 flex flex-col justify-center items-center gap-6 relative'>
+      <section className='p-12 flex flex-col justify-center items-center gap-6 relative my-20'>
         <div className='absolute top-[-20px] left-0 p-12'>
           <Image
             src={quotes}
