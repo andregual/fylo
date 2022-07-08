@@ -5,10 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    screens: {
-      sm: '375px',
-    },
     extend: {
+      fontSize: {
+        desktopLg: '40px',
+        desktopSm: '20px',
+      },
       fontFamily: {
         primary: 'Open Sans, sans-serif',
         titles: 'Raleway, sans-serif',

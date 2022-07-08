@@ -21,7 +21,6 @@ import profile2 from '../public/images/profile-2.jpg';
 import profile3 from '../public/images/profile-3.jpg';
 import Testimonial from './Testimonial';
 
-import quotes from '../public/images/bg-quotes.png';
 
 const features = [
   {
@@ -70,36 +69,38 @@ const testimonials = [
 const FyloMain = () => {
   return (
     <main>
-      <section className='p-6 flex flex-col items-center text-center gap-8'>
-        <div className='w-full h-full min-h-[300px]'>
-          <Image
-            priority
-            src={mainImage}
-            alt='logo'
-            layout='responsive'
-            objectFit='contain'
-            width={'100%'}
-            height={'100%'}
-          />
-        </div>
-        <div className='flex flex-col gap-4'>
-          <h1 className='font-titles text-white font-bold text-2xl'>
+      <section className='p-6 flex flex-col items-center text-center gap-8 relative'>
+        <Image
+          priority
+          quality={100}
+          className='w-full h-full min-h-[300px] max-w-[720px] max-h-[520px]'
+          src={mainImage}
+          alt='logo'
+        />
+        <div className='flex flex-col gap-4 sm:w-[400px] md:w-[720px] md:gap-8'>
+          <h1 className='font-titles text-white font-bold text-2xl md:text-desktopLg md:leading-[50px]'>
             All your files in one secure location, accessible anywhere.
           </h1>
-          <StyledText>
-            Fylo stores all your most important files in one secure location.
-            Access them wherever you need, share and collaborate with friends
-            family, and co-workers.
-          </StyledText>
+
+          <div className='md:w-[590px] m-auto'>
+            <StyledText>
+              Fylo stores all your most important files in one secure location.
+              Access them wherever you need, share and collaborate with friends
+              family, and co-workers.
+            </StyledText>
+          </div>
         </div>
-        <button className='w-full rounded-3xl bg-gradient-to-br from-[#63E1D9] to-[#34A0CD] h-12 font-titles font-bold text-white text-sm'>
+        <button className='rounded-3xl bg-gradient-to-br from-[#63E1D9] to-[#34A0CD] h-12 font-titles font-bold text-white text-sm w-[280px]'>
           Get Started
         </button>
       </section>
 
-      <section className='p-6 flex flex-col gap-20 items-center text-center justify-center my-20'>
+      <section className='p-6 sm:p-12 md:p-24 grid grid-cols-1 sm:grid-cols-2 gap-20 items-center text-center justify-center my-20'>
         {features.map(({ image, title, text }) => (
-          <div key={title} className='flex flex-col items-center'>
+          <div
+            key={title}
+            className='flex flex-col items-center md:max-w-[350px] m-auto gap-2'
+          >
             <div className='w-[100px] h-[100px]'>
               <Image
                 src={image}
@@ -108,80 +109,75 @@ const FyloMain = () => {
                 objectFit='contain'
               />
             </div>
-            <StyledTitle>{title}</StyledTitle>
-            <StyledText>{text}</StyledText>
+            <h3 className='font-titles text-white text-xl font-bold'>
+              {title}
+            </h3>
+            <p className='font-primary text-white text-sm leading-5'>{text}</p>
           </div>
         ))}
       </section>
 
-      <section className='p-6 flex flex-col gap-4 my-20'>
-        <div className='mb-12'>
+      <section className='p-6 md:px-24 flex flex-col md:flex-row md:justify-center md:items-center gap-8 my-20'>
+        <div className='md:w-[60%]'>
           <Image
             src={productive}
             alt={'Stay productive'}
-            layout='responsive'
-            objectFit='contain'
+            quality={100}
+            className='w-full h-full min-h-[300px] max-w-[615px] max-h-[460px]'
           />
         </div>
-        <StyledTitle>Stay productive, wherever you are</StyledTitle>
-        <StyledText>
-          Never let location be an issue when accessing your files. Fylo has you
-          covered for all of your file storage needs.
-        </StyledText>
-        <StyledText>
-          Securely share files and folders with friends, family and colleagues
-          for live collaboration. No email attachments required.
-        </StyledText>
-        <div className='text-cyan  flex flex-row items-center gap-2'>
-          <div className='border-b-[1px] border-cyan flex py-1'>
-            <p>See how Fylo works</p>
+        <div className='flex flex-col gap-4 md:max-w-[560px] md:w-[40%]'>
+          <StyledTitle>Stay productive, wherever you are</StyledTitle>
+          <StyledText>
+            Never let location be an issue when accessing your files. Fylo has
+            you covered for all of your file storage needs.
+          </StyledText>
+          <StyledText>
+            Securely share files and folders with friends, family and colleagues
+            for live collaboration. No email attachments required.
+          </StyledText>
+          <div className='text-cyan  flex flex-row'>
+            <div className='border-b-[1px] border-cyan flex py-1 items-center gap-1'>
+              <p>See how Fylo works</p>
 
-            <Image
-              src={arrowIcon}
-              alt={'Stay productive'}
-              height={20}
-              width={20}
-              layout='fixed'
-              objectFit='contain'
-            />
+              <Image
+                src={arrowIcon}
+                alt={'Stay productive'}
+                height={20}
+                width={20}
+                layout='fixed'
+                objectFit='contain'
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className='p-12 flex flex-col justify-center items-center gap-6 relative my-20'>
-        <div className='absolute top-[-20px] left-0 p-12'>
-          <Image
-            src={quotes}
-            alt={'Stay productive'}
-            height={20}
-            width={20}
-            layout='fixed'
-            objectFit='contain'
-            quality={100}
-          ></Image>
-        </div>
-        {testimonials.map((testimonial) => (
-          <Testimonial key={testimonial.name} {...testimonial} />
+      <section className='p-12 flex flex-col md:flex-row justify-center items-center gap-6 my-20'>
+        {testimonials.map((testimonial, index) => (
+          <Testimonial key={testimonial.name} {...testimonial} index={index} />
         ))}
       </section>
 
       <section className='p-5'>
-        <div className='bg-introBg py-10 px-7 rounded flex flex-col items-center justify-center gap-8'>
+        <div className='bg-introBg py-10 px-7 rounded-lg flex flex-col items-center justify-center gap-8 sm:gap-10 max-w-[860px] m-auto drop-shadow-lg'>
           <div className='flex flex-col items-center justify-center text-center gap-4'>
-            <StyledTitle>Get early access today</StyledTitle>
-            <StyledText>
+            <h3 className='font-titles text-white md:text-[32px] text-[18px] font-bold'>
+              Get early access today
+            </h3>
+            <p className='font-primary text-white text-[14px] leading-5 sm:max-w-[75%]'>
               It only takes a minute to sign up and our free starter tier is
               extremely generous. If you have any questions, our support team
               would be happy to help you.
-            </StyledText>
+            </p>
           </div>
-          <div className='flex flex-col items-center justify-center gap-6 w-full'>
+          <div className='flex flex-col sm:flex-row items-center justify-center gap-6 w-full'>
             <input
-              className='w-full rounded-3xl h-12 px-7 text-[10px] font-primary text-[#C0C0C0]'
+              className='w-full sm:w-[65%] rounded-3xl h-12 px-7 text-[10px] font-primary text-[#C0C0C0]'
               type='email'
               placeholder='email@example.com'
             />
-            <button className='w-full rounded-3xl bg-gradient-to-br from-[#63E1D9] to-[#34A0CD] h-12 font-titles font-bold text-white text-sm'>
+            <button className='w-full sm:w-[35%] rounded-3xl bg-gradient-to-br from-[#63E1D9] to-[#34A0CD] h-12 font-titles font-bold text-white text-sm'>
               Get Started For Free
             </button>
           </div>

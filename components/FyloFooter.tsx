@@ -33,15 +33,20 @@ const FyloFooter = () => {
   ];
 
   return (
-    <footer className='bg-footerBg p-7 flex flex-col gap-[35px]'>
+    <footer className='bg-footerBg p-7 md:p-24 flex flex-col gap-[35px]'>
       <div className='relative w-[80px] h-[24px]'>
         <Image src={logo} alt='logo' layout='responsive' objectFit='contain' />
       </div>
 
-      <div className='flex flex-col gap-14'>
-        <div className='flex flex-col gap-4'>
-          {details.map((detail) => (
-            <div key={detail.id} className='flex flex-row gap-7'>
+      <div className='flex flex-col md:flex-row gap-14 lg:gap-10 lg:justify-between'>
+        <div className='flex flex-col lg:grid lg:grid-cols-[60%_auto] md:grid-rows-2 gap-10 max-w-[55%]'>
+          {details.map((detail, index) => (
+            <div
+              key={detail.id}
+              className={`flex flex-row gap-7 ${
+                index === 0 && 'lg:row-span-2'
+              } lg:gap-2`}
+            >
               <div className='pt-2'>{detail.image}</div>
               <div>
                 <h4 className='text-white text-[16px] font-primary'>
@@ -52,7 +57,7 @@ const FyloFooter = () => {
           ))}
         </div>
 
-        <div className='flex flex-col gap-12'>
+        <div className='flex flex-col md:flex-row gap-12'>
           <ul className='flex flex-col gap-4'>
             {firstLinks.map((link) => (
               <li className='text-white font-primary text-base' key={link}>

@@ -6,7 +6,9 @@ type Props = {
 
 const StyledTitle = ({ children }: Props) => {
   return (
-    <div className='font-titles text-white font-bold text-lg'>{children}</div>
+    <h2 className='font-titles text-white font-bold text-lg md:text-desktopLg md:leading-[50px]'>
+      {children}
+    </h2>
   );
 };
 

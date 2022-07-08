@@ -5,7 +5,11 @@ type Props = {
 };
 
 const StyledText = ({ children }: Props) => {
-  return <h3 className='font-primary text-white text-sm'>{children}</h3>;
+  return (
+    <h3 className='font-primary text-white text-sm md:text-desktopSm md:leading-8 leading-5'>
+      {children}
+    </h3>
+  );
 };
 
 export default StyledText;
