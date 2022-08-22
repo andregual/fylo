@@ -39,7 +39,7 @@ const FyloFooter = () => {
       </div>
 
       <div className='flex flex-col md:flex-row gap-14 lg:gap-10 lg:justify-between'>
-        <div className='flex flex-col lg:grid lg:grid-cols-[60%_auto] md:grid-rows-2 gap-10 max-w-[55%]'>
+        <div className='flex flex-col lg:grid lg:grid-cols-[60%_auto] md:grid-rows-2 gap-10 lg:max-w-[55%]'>
           {details.map((detail, index) => (
             <div
               key={detail.id}
